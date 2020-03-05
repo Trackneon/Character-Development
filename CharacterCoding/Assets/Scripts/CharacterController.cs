@@ -1,0 +1,34 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[RequireComponent(typeof(CharacterController))]
+
+public class CharacterController : MonoBehaviour
+{
+    private Vector3 position;
+    private CharacterController controller;
+
+    public float moveSpeed = 10f, gravity = 9.8f, jumpSpeed = 30f;
+    private int jumpCount;
+    public int jumpCountMax = 2;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        controller = GetComponent<CharacterController>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        position.x = moveSpeed * Input.GetAxis("Horizontal");
+        position.y -= gravity;
+
+        //if (controller.isGrounded)
+        //{
+        //    position.y = jumpSpeed;
+        //    jumpCount++;
+        //}
+    }
+}
